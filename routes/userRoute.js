@@ -9,7 +9,7 @@ const { verifyAccessToken} = require('../helpers/jwtHelper');
 // routes.post('/user/',userController.AddUser);
  routes.get('/user/:id',userController.GetUser);
 
- routes.patch('/user/:id', userController.UpdateUsers);
+ routes.put('/user/:id', userController.UpdateUsers);
 
 routes.delete('/user/:id', userController.DeleteUser);
 

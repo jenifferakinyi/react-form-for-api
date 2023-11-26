@@ -1,6 +1,6 @@
 const { default: mongoose } = require('mongoose');
+const Student = require ('../model/studentsModel');
 const createError = require('http-errors');
-const Student = require('../model/studentsModel')
 module.exports = {
     AddStudent: async (req, res) => {
         try {
@@ -46,18 +46,22 @@ GetStudents:async (req, res, next)=>{
     next(error)
 }
 },
-UpdateStudents: async (req, res, next)=>{
-    try{
+UpdateStudents: async (req, res, next) => {
+    try {
         const id = req.params.id;
         const update = req.body;
-        const options = {new:true}
-        const results = await Students.findByIdAndUpdate (id, update, options)
-    
-         res.send(results);
-    }
-    catch(error){
-        console.log(error.message)
-    }
+        const options = { new: true };
+        const results = await Students.findByIdAndUpdate(id, update, options);
+
+        if (!results) {
+            return res.status(404).send({ error: 'Student not found' });
+        }
+
+        res.send(results);
+    } catch (error) {
+        console.error('UpdateStudents Error:', error);
+        res.status(500).send({ error: 'Internal Server Error' });
+    }    
 },
 DeleteStudent:async (req, res, next)=>{
     const id = req.params.id;

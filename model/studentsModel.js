@@ -1,23 +1,23 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema; // Fix typo here: 'schema' to 'Schema'
+const Schema = mongoose.Schema;
 
 // Creating a schema
-const studentsSchema = new Schema({  // Fix typo here: 'schema' to 'Schema'
+const studentsSchema = new Schema({
     firstname: {
         type: String,
-        required: [true, 'firstname is required']
+        required: [true, 'Firstname is required'] 
     },
     lastname: {
         type: String,
-        required: [true, 'lastname is required']
+        required: [true, 'Lastname is required'] 
     },
     gender: {
-        type: String, // Fix typo here: 'string' to 'String'
+        type: String
     }
 });
 
 // Creating a model that is going to represent our collection in the db
-const Student = mongoose.model('Student', studentsSchema); // Use 'Student' instead of 'student'
+const Student = mongoose.model('Student', studentsSchema);
 
 // Exporting this file so we can use it in other files
-module.exports = Student; // Fix variable name here: 'Students' to 'Student'
+module.exports = Student;

@@ -1,6 +1,5 @@
 const express = require('express');
 const routes = express.Router();
-const Student = require('../model/studentsModel')
 const studentController = require ('../contoller/studentController');
 
 routes.get('/students',  studentController.getAllStudents);
@@ -12,7 +11,7 @@ routes.get('/students/:id',studentController.GetStudents);
 routes.post('/students',studentController.AddStudent);
 
 //update students in the db
-routes.patch('/students/:id',studentController.UpdateStudents);
+routes.put('/students/:id',studentController.UpdateStudents);
 // delete student from the db
 routes.delete('/students/:id',studentController.DeleteStudent);
 module.exports = routes;

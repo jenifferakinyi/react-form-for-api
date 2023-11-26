@@ -1,8 +1,8 @@
 const  mongoose  = require('mongoose');
 const User = require('../model/userModel');
-const {authSchema}= require ("../auth.js/auth_Schema")
+const {authSchema}= require ("../auth.js/auth_Schema");
 const createError = require('http-errors');
-const {signAccessToken, signRefreshToken, verifyRefreshToken} = require('../helpers/jwtHelper')
+const {signAccessToken, signRefreshToken, verifyRefreshToken} = require('../helpers/jwtHelper');
 
 
 module.exports = {
